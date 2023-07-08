@@ -1,0 +1,6 @@
+com\macl\products\service\impl\ProductEntityServiceImpl.class
+com\macl\products\entity\ProductEntity.class
+com\macl\products\repository\IProductEntityRepository.class
+com\macl\ProductsApplication.class
+com\macl\products\service\IProductEntityService.class
+com\macl\products\controller\ProductRestController.class
