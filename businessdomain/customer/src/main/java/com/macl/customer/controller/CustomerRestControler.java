@@ -68,13 +68,16 @@ public class CustomerRestControler {
     }
 
     @GetMapping("/full")
-    public CustomerEntity findByCode(@RequestParam String code) {
+    public CustomerEntity findByCode(@RequestParam("code") String code) {
 
         CustomerEntity customer = iCustomerEntityService.findByCode(code);
         customer.getProducts().stream().forEach(product -> {
             String productName = getProductName(product.getProductId());
             product.setProductName(productName);
         });
+
+        List<?> genericTransaction = getTransactions(customer.getIban());
+        customer.setTransanctions(genericTransaction);
         return customer;
     }
 
@@ -82,12 +85,27 @@ public class CustomerRestControler {
     private String getProductName(long id) {
 
         WebClient webClient = builder.clientConnector(new ReactorClientHttpConnector(httpClient))
-                .baseUrl("http://localhost:8086/product")
+                .baseUrl("http://localhost:8091/product")
                 .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
-                .defaultUriVariables(Collections.singletonMap("url", "http://localhost:8086/product"))
+                .defaultUriVariables(Collections.singletonMap("url", "http://localhost:8091/product"))
                 .build();
+
         JsonNode jsonNode = webClient.method(HttpMethod.GET).uri("/find-by-id?id=" + id).retrieve().bodyToMono(JsonNode.class).block();
         return jsonNode.get("name").asText();
+    }
+
+
+    private List<?> getTransactions(String accountIban) {
+
+        WebClient webClient = builder.clientConnector(new ReactorClientHttpConnector(httpClient))
+                .baseUrl("http://localhost:8092/transactions")
+                .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
+                .defaultUriVariables(Collections.singletonMap("url", "http://localhost:8092/transactions"))
+                .build();
+
+        List<?> genericTransactions = webClient.method(HttpMethod.GET).uri(uriBuilder -> uriBuilder
+                .path("/customer").queryParam("accountIban", accountIban).build()).retrieve().bodyToFlux(Object.class).collectList().block();
+        return genericTransactions;
     }
 
 }

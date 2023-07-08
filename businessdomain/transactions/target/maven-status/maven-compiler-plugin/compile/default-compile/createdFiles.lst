@@ -1,1 +1,8 @@
+com\macl\transactions\entity\ChannelEntity.class
+com\macl\transactions\entity\TransactionsEntity.class
+com\macl\transactions\controller\TransctionsController.class
+com\macl\transactions\entity\StatusEntity.class
+com\macl\transactions\service\ITransactionsEntityService.class
+com\macl\transactions\service\impl\TransactionsEntityServiceImpl.class
 com\macl\transactions\TransactionsApplication.class
+com\macl\transactions\repository\ITransactionsEntityRepository.class
