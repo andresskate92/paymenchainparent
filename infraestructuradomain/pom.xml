@@ -11,6 +11,10 @@
 
     <groupId>com.macl.infraestructuradomain</groupId>
     <artifactId>infraestructuradomain</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>eureka</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

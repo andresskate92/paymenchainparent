@@ -8,7 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="transactions" />
-        <module name="infraestructuradomain" />
+        <module name="eureka" />
         <module name="customer" />
         <module name="products" />
       </profile>
