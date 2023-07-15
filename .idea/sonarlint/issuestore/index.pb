@@ -7,14 +7,8 @@ bbusinessdomain/products/src/main/java/com/macl/products/service/impl/ProductEnt
 Zbusinessdomain/products/src/main/java/com/macl/products/service/IProductEntityService.java,5\d\5df4d6bf3a27951d4e179dd8f2c9857172acede2
 Å
 Qbusinessdomain/products/src/main/java/com/macl/products/entity/ProductEntity.java,c\6\c618c23536ca6bf53d13b31bfeb6f5fcec721f47
-ç
-]businessdomain/products/src/main/java/com/macl/products/controller/ProductRestController.java,c\7\c7a2477924c94148dfee8ed286e1ba42a7e80934
 ã
 [businessdomain/customer/src/main/java/com/macl/customer/service/ICustomerEntityService.java,3\8\383fee604002393fe100755ad0689d8c1f304983
-ì
-cbusinessdomain/customer/src/main/java/com/macl/customer/service/impl/CustomerEntityServiceImpl.java,5\d\5d6f97e4974858079a99fb35a346ff41af289398
-ë
-abusinessdomain/customer/src/main/java/com/macl/customer/repository/ICustomerEntityRepository.java,c\0\c0d588d708ba517d774422e25ee93696cf594913
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
@@ -36,21 +30,5 @@ mbusinessdomain/transactions/src/main/java/com/macl/transactions/repository/ITra
 obusinessdomain/transactions/src/main/java/com/macl/transactions/service/impl/TransactionsEntityServiceImpl.java,d\6\d6b62cf08c22d1eabbff844a5018ddaf05d6a24d
 R
 "businessdomain/products/.gitignore,d\8\d8953e5a66bd62f37a4fe95997d19459ee0c7f87
-ç
-]businessdomain/customer/src/main/java/com/macl/customer/controller/CustomerRestControler.java,f\a\faa624dc2e014886d0c9859e7a966aa7f570b14f
-ï
-ebusinessdomain/transactions/src/main/java/com/macl/transactions/controller/TransctionsController.java,2\f\2f9709df0e63033cba92ee6cc5f2c0c4ea6b4e73
-O
-businessdomain/customer/pom.xml,b\1\b1fc31afd871d2888e6b72b1120e3ca02b20d75f
-w
-Gbusinessdomain/customer/src/main/java/com/macl/CustomerApplication.java,4\f\4fbc16dc3e023d485b6c480fda659fd474e17d52
-å
-\businessdomain/transactions/src/main/java/com/macl/transactions/TransactionsApplication.java,9\3\936ebdcf2093c5270418c6714e8fdc330219675e
 S
 #businessdomain/transactions/pom.xml,b\e\beb53255a74fde8e691afdda454ce31c30082b70
-ù
-minfraestructuradomain/eureka/src/main/java/com/macl/infraestructuradomain/eureka/EurekaServerApplication.java,9\9\994933227c716a166c9b6516ec23524311013bc5
-O
-businessdomain/products/pom.xml,a\9\a9a958b11dba50a239034f107f13f6030a5662d4
-T
-$infraestructuradomain/eureka/pom.xml,9\d\9da8286b58de0df542a4b86475a7bfbe20bfdaa1

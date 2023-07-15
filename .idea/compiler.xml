@@ -7,6 +7,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="admin-server" />
+        <module name="config-server" />
         <module name="transactions" />
         <module name="eureka" />
         <module name="customer" />
