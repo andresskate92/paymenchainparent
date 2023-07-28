@@ -1,0 +1,16 @@
+
+version: '3.8'
+services:
+  registry-discovery:
+      container_name: service-product
+      image: paymentchain/microservice-docker-products:1.0-SNAPSHOT
+      environment:
+        - JAVA_OPTS=
+        - Xms256m
+        - Xmx256m
+        - DEUREKA_SERVER=http://registry-discovery:8761/eureka/
+      depends_on:
+        - registry-discovery
+        - configuration
+      ports:
+        - 8091:8091

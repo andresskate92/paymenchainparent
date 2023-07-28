@@ -1,7 +1,0 @@
-com\macl\customer\service\ICustomerEntityService.class
-com\macl\customer\entity\CustomerEntity.class
-com\macl\customer\repository\ICustomerEntityRepository.class
-com\macl\customer\service\impl\CustomerEntityServiceImpl.class
-com\macl\CustomerApplication.class
-com\macl\customer\entity\CustomerProducEntity.class
-com\macl\customer\controller\CustomerRestController.class
