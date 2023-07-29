@@ -1,16 +1,99 @@
-
 version: '3.8'
 services:
   registry-discovery:
-      container_name: service-product
-      image: paymentchain/microservice-docker-products:1.0-SNAPSHOT
-      environment:
-        - JAVA_OPTS=
-        - Xms256m
-        - Xmx256m
-        - DEUREKA_SERVER=http://registry-discovery:8761/eureka/
-      depends_on:
-        - registry-discovery
-        - configuration
-      ports:
-        - 8091:8091
+    container_name: id-eureka
+    image: paymentchain/microservice-docker-eureka:1.0-SNAPSHOT
+    ports:
+      - 8761:8761
+    environment:
+      - JAVA_OPTS=
+        -Xms256m
+        -Xmx256m
+
+
+  ###################################################################
+  #######################CONFIG-SERVER-SERVICE#######################
+  ###################################################################
+  configuration:
+    container_name: id-config
+    image: paymentchain/microservice-docker-config-server:1.0-SNAPSHOT
+    volumes:
+        - ./config-server-repository:/tmp/config-server-repository
+    environment:
+     - JAVA_OPTS=
+       -Xms256m
+       -Xmx256m
+       -DLOCAL_REPOSITORY=/tmp/config-server-repository
+    depends_on:
+      - registry-discovery
+    ports:
+      - 8888:8888
+
+  ###################################################################
+  #######################ADMIN-SERVER-SERVICE#######################
+  ###################################################################
+  administration:
+    container_name: id-admin
+    image: paymentchain/microservice-docker-admin-server:1.0-SNAPSHOT
+    environment:
+      - JAVA_OPTS=
+        -Xms256m
+        -Xmx256m
+#        -DLOCAL_REPOSITORY=http://registry-discovery:8761/eureka/
+    depends_on:
+      - registry-discovery
+    ports:
+      - 8762:8762
+
+  ##################################################################
+  #######################PRODUCT-MICROSERVICE#######################
+  ##################################################################
+  producto-microservice:
+    container_name: producto-microservice-container
+    image: paymentchain/microservice-docker-products:1.0-SNAPSHOT
+    environment:
+      - JAVA_OPTS=
+        -Xms256m
+        -Xmx256m
+#        -DLOCAL_REPOSITORY=http://registry-discovery:8761/eureka/
+    depends_on:
+      - registry-discovery
+      - configuration
+    ports:
+      - 8091:8091
+
+  ##################################################################
+  #######################CUSTOMER-MICROSERVICE######################
+  ##################################################################
+  customer-microservice:
+    container_name: customer-microservice-container
+    image: paymentchain/microservice-docker-customer:1.0-SNAPSHOT
+    environment:
+      - JAVA_OPTS=
+        -Xms256m
+        -Xmx256m
+        -Dspring.profiles.active-development
+#        -DLOCAL_REPOSITORY=http://registry-discovery:8761/eureka/
+    depends_on:
+      - registry-discovery
+      - configuration
+    ports:
+      - 8090:8090
+
+  ##################################################################
+  #######################TRANSACTION-MICROSERVICE###################
+  ##################################################################
+  transaction-microservice:
+    container_name: transaction-microservice-container
+    image: paymentchain/microservice-docker-transactions:1.0-SNAPSHOT
+    environment:
+      - JAVA_OPTS=
+        -Xms256m
+        -Xmx256m
+        -Dspring.profiles.active-development
+#        -DLOCAL_REPOSITORY=http://registry-discovery:8761/eureka/
+    depends_on:
+      - registry-discovery
+      - configuration
+    ports:
+      - 8092:8092
