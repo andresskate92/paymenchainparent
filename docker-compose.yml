@@ -72,7 +72,7 @@ services:
       - JAVA_OPTS=
         -Xms256m
         -Xmx256m
-        -Dspring.profiles.active-development
+        -Dspring.profiles.active=production
 #        -DLOCAL_REPOSITORY=http://registry-discovery:8761/eureka/
     depends_on:
       - registry-discovery
@@ -90,10 +90,42 @@ services:
       - JAVA_OPTS=
         -Xms256m
         -Xmx256m
-        -Dspring.profiles.active-development
+        -Dspring.profiles.active=production
 #        -DLOCAL_REPOSITORY=http://registry-discovery:8761/eureka/
     depends_on:
       - registry-discovery
       - configuration
     ports:
       - 8092:8092
+
+
+  ###########################################################
+  #######################DATABASE-POSTGRES###################
+  ###########################################################
+  postgres-db:
+    container_name: postgresdb-container
+    image: postgres:latest
+    ports:
+      - 5433:5432
+    volumes:
+      - ./dbfiles:/docker-entrypoint-initdb.d
+      - /var/lib/postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: mcabrera
+      POSTGRES_DB: postgres
+
+  pgadmin4:
+    container_name: pgadmin4-container
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: milton.cabreralopez926@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: mcabrera
+    ports:
+      - 5050:80
+    depends_on:
+      - postgres-db
+#    volumes:
+#      - pgadmin-data:/var/lib/pgadmin
+

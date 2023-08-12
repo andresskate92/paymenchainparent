@@ -6,6 +6,7 @@
     <mapping directory="$PROJECT_DIR$/businessdomain/customer" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/businessdomain/transactions" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/config-server-repository" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/dbfiles" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/infraestructuradomain" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/infraestructuradomain/admin-server" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/infraestructuradomain/config-server" vcs="Git" />

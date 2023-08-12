@@ -6,6 +6,3 @@ ARG JAR_FILE=target/*.jar
 ADD /target/${JAR_FILE} app.jar
 ENV JAVA_OPTS=""
 ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar"]
-#COPY "/target/products-1.0-SNAPSHOT.jar" "products.jar"
-#EXPOSE 9010
-#ENTRYPOINT ["java", "-jar", "/products.jar"]
